@@ -28,6 +28,7 @@ Span::Span(unsigned int N) : _N(N)
 Span::Span(Span const &obj) : _N(obj._N)
 {
 	array = std::vector<int>(obj.array.begin(), obj.array.end());
+	sort(array.begin(), array.end());
 	std::cout << "Copy constructor called" << std::endl;
 }
 
@@ -38,6 +39,7 @@ Span& Span::operator=(Span const &rhs)
 	{
 		this->_N = rhs._N;
 		array = std::vector<int>(rhs.array.begin(), rhs.array.end());
+		sort(array.begin(), array.end());
 	}
 	return (*this);
 }
@@ -57,6 +59,7 @@ void	Span::addRange(std::vector<int> range)
 	if (range.size() + array.size() > getN())
 		throw LimitReachedException();
 	array.insert(array.begin(), range.begin(), range.end());
+	sort(array.begin(), array.end());
 }
 
 void	Span::addNumber(int value)
@@ -67,7 +70,10 @@ void	Span::addNumber(int value)
 		throw LimitReachedException();
 	it = find(array.begin(), array.end(), value);
 	if (it == array.end())
+	{
 		array.push_back(value);
+		sort(array.begin(), array.end());
+	}
 	else
 		throw AlreadyStoredException();
 }
@@ -77,4 +83,24 @@ void	Span::displayArray()
 	std::vector<int>::iterator it;
 	for (it = array.begin(); it != array.end(); *it++)
 		std::cout << *it << std::endl;
+}
+
+int		Span::shortestSpan()
+{
+	if (array.size() < 2)
+		throw ImpossibleSpanException();
+	int	span = array[1] - array[0];
+	for (size_t i = 0; i < array.size() - 1; i++)
+	{
+		if (array[i + 1] - array[i] < span)
+			span = array[i + 1] - array[i];
+	}
+	return (span);
+}
+
+int		Span::longestSpan()
+{
+	if (array.size() < 2)
+		throw ImpossibleSpanException();
+	return (array.back() - array.front());
 }

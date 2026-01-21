@@ -20,17 +20,19 @@ class	Span
 		const char * what() const throw();
 	};
 	public :
-	Span();
-	Span(unsigned int N);
-	Span(const Span& obj);
-	Span& operator=(const Span& rhs);
-	~Span();
-	unsigned int	getN();
-	void			addNumber(int value);
-	void			addRange(std::vector<int> range);
-	void			displayArray();
-	std::vector<int> array;
-	
+		Span();
+		Span(unsigned int N);
+		Span(const Span& obj);
+		Span& operator=(const Span& rhs);
+		~Span();
+		unsigned int	getN();
+		void			addNumber(int value);
+		void			addRange(std::vector<int> range);
+		void			displayArray();
+		int				shortestSpan();
+		int				longestSpan();
+		std::vector<int> array;
+		
 	private :
 		unsigned int _N;
 };
