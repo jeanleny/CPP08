@@ -1,0 +1,38 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/c++",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-std=c++98",
+      "-g",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "object/main.o",
+      "src/main.cpp"
+    ],
+    "directory": "/home/leny/Work/CommonCore/5th/CPP/CPP_08/ex02",
+    "file": "/home/leny/Work/CommonCore/5th/CPP/CPP_08/ex02/src/main.cpp",
+    "output": "/home/leny/Work/CommonCore/5th/CPP/CPP_08/ex02/object/main.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/c++",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-std=c++98",
+      "-g",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "object/MutantStack.o",
+      "src/MutantStack.cpp"
+    ],
+    "directory": "/home/leny/Work/CommonCore/5th/CPP/CPP_08/ex02",
+    "file": "/home/leny/Work/CommonCore/5th/CPP/CPP_08/ex02/src/MutantStack.cpp",
+    "output": "/home/leny/Work/CommonCore/5th/CPP/CPP_08/ex02/object/MutantStack.o"
+  }
+]
