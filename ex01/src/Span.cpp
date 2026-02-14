@@ -5,11 +5,6 @@ const char *Span::LimitReachedException::what() const throw()
 	return ("Array cant contains more values");
 }
 
-const char *Span::AlreadyStoredException::what() const throw()
-{
-	return ("Value is already stored in the array");
-}
-
 const char *Span::ImpossibleSpanException::what() const throw()
 {
 	return("Span cannot be shown");
@@ -27,7 +22,7 @@ Span::Span(unsigned int N) : _N(N)
 
 Span::Span(Span const &obj) : _N(obj._N)
 {
-	array = std::vector<int>(obj.array.begin(), obj.array.end());
+	array = std::vector<unsigned int>(obj.array.begin(), obj.array.end());
 	sort(array.begin(), array.end());
 	std::cout << "Copy constructor called" << std::endl;
 }
@@ -38,7 +33,7 @@ Span& Span::operator=(Span const &rhs)
 	if (this != &rhs)
 	{
 		this->_N = rhs._N;
-		array = std::vector<int>(rhs.array.begin(), rhs.array.end());
+		array = std::vector<unsigned int>(rhs.array.begin(), rhs.array.end());
 		sort(array.begin(), array.end());
 	}
 	return (*this);
@@ -54,7 +49,7 @@ unsigned int Span::getN()
 	return (_N);
 }
 
-void	Span::addRange(std::vector<int> range)
+void	Span::addRange(std::vector<unsigned int> range)
 {
 	if (range.size() + array.size() > getN())
 		throw LimitReachedException();
@@ -62,25 +57,19 @@ void	Span::addRange(std::vector<int> range)
 	sort(array.begin(), array.end());
 }
 
-void	Span::addNumber(int value)
+void	Span::addNumber(unsigned int value)
 {
 	std::vector<int>::iterator it;
 	
 	if (array.size() >= getN())
 		throw LimitReachedException();
-	it = find(array.begin(), array.end(), value);
-	if (it == array.end())
-	{
-		array.push_back(value);
-		sort(array.begin(), array.end());
-	}
-	else
-		throw AlreadyStoredException();
+	array.push_back(value);
+	sort(array.begin(), array.end());
 }
 
 void	Span::displayArray()
 {
-	std::vector<int>::iterator it;
+	std::vector<unsigned int>::iterator it;
 	for (it = array.begin(); it != array.end(); *it++)
 		std::cout << *it << std::endl;
 }
@@ -89,7 +78,7 @@ int		Span::shortestSpan()
 {
 	if (array.size() < 2)
 		throw ImpossibleSpanException();
-	int	span = array[1] - array[0];
+	unsigned int	span = array[1] - array[0];
 	for (size_t i = 0; i < array.size() - 1; i++)
 	{
 		if (array[i + 1] - array[i] < span)

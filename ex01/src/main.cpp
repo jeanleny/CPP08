@@ -26,8 +26,8 @@ int main(void)
 	obj_op.displayArray();
 	
 	Span obj_range(10);
-	std::vector<int> vec;
-	vec.push_back(-7);
+	std::vector<unsigned int> vec;
+	vec.push_back(7);
 	vec.push_back(7);
 	vec.push_back(18);
 	vec.push_back(28);
@@ -65,6 +65,15 @@ int main(void)
 	try
 	{
 		imp_lspan.longestSpan();
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	Span impo_lspan(0);
+	try
+	{
+		impo_lspan.longestSpan();
 	}
 	catch (std::exception &e)
 	{

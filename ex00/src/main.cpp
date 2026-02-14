@@ -11,6 +11,8 @@ int main(void)
 		easyfind(array, 23);
 		easyfind(array, 0);
 		easyfind(array, 99);
+		easyfind(array, 99);
+		easyfind(array, 2);
 		easyfind(array, -1);
 	}
 	catch (std::exception &e)
