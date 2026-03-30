@@ -13,7 +13,7 @@ MutantStack<T>::MutantStack(const MutantStack &obj) : std::stack<T>(obj)
 }
 
 template<typename T>
-MutantStack<T> &MutantStack<T>::operator=(const MutantStack& rhs)
+MutantStack<T> &MutantStack<T>::operator=(const MutantStack &rhs)
 {
 	if (this != &rhs)
 		std::stack<T>::operator=(rhs);

@@ -36,9 +36,8 @@ int main(void)
 	{
 		std::cout << *ite << std::endl;
 		ite++;
-		//*ite += 1;
 	}
-
+	
 	std::cout << "--SUBJECT TEST--" << std::endl;
 	MutantStack<int> mstack;
 	mstack.push(5);
@@ -57,9 +56,35 @@ int main(void)
 	--itt;
 	while (itt != itte)
 	{
-	std::cout << *itt << std::endl;
-	++itt;
+		std::cout << "mstack value : " << *itt << std::endl;
+		++itt;
 	}
 	std::stack<int> s(mstack);
-	return 0;
+	size_t size = s.size();
+	for (size_t i = 0; i < size; i++)
+	{
+		std::cout << "s value : " << s.top() << std::endl;
+		s.pop();
+	}
+	
+	/*std::vector<int> v;
+	v.push_back(5);
+	v.push_back(17);
+	std::cout << v.front() << std::endl;
+	v.pop_back();
+	std::cout << v.size() << std::endl;
+	v.push_back(3);
+	v.push_back(5);
+	v.push_back(737);
+	v.push_back(0);
+	std::vector<int>::iterator it = v.begin();
+	std::vector<int>::iterator ite = v.end();
+	++it;
+	--it;
+	while (it != ite)
+	{
+		std::cout << *it << std::endl;
+		++it;
+	}
+	std::vector<int> s(v);*/
 }

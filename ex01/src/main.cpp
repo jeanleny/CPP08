@@ -2,6 +2,16 @@
 
 int main(void)
 {
+	std::cout << "====Main Test====" << std::endl;
+	Span sp = Span(5);
+	sp.addNumber(6);
+	sp.addNumber(3);
+	sp.addNumber(17);
+	sp.addNumber(9);
+	sp.addNumber(11);
+	std::cout << sp.shortestSpan() << std::endl;
+	std::cout << sp.longestSpan() << std::endl;
+
 	std::cout << "\n--DEFAULT constructor test--\n" << std::endl;
 	Span obj(2);
 	try 
@@ -61,6 +71,19 @@ int main(void)
 	lspan.addNumber(5);
 	lspan.addNumber(90);
 	std::cout << "longest span " << lspan.longestSpan() << std::endl;
+	std::cout << "--HUGE NB OF VALUES TEST--" << std::endl;
+	Span huge_span(10000);
+	std::vector <unsigned int> h_vec;
+	int nb = 0;
+	for (int i = 0; i < 10000; i++)
+	{
+		h_vec.push_back(nb);
+		nb += i;
+	}
+	huge_span.addRange(h_vec);
+	std::cout << "list of " << h_vec.size() << " elements" << std::endl;
+	std::cout << "shortest span : " << huge_span.shortestSpan() << std::endl;
+	std::cout << "longest span : " << huge_span.longestSpan() << std::endl;
 	Span imp_lspan(1);
 	try
 	{
